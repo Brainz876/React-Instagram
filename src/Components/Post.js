@@ -3,18 +3,50 @@ import dots from "../Assets/more_horiz.svg";
 import { useState } from "react";
 
 const Post = () => {
+  // eslint-disable-next-line
   const [posts, setPosts] = useState([
     {
       key: "1",
       username: "lukkypistachio",
       location: "TGI Friday's Jamaica",
+      image: "https://www.stylevore.com/wp-content/uploads/2019/10/1570415756_502_notitle.jpg",
+      likes: "6,123",
+      commentName1: "dante1657",
+      comment1: "Sexy lips",
+      commentName2: "caleb.chnng",
+      comment2: "Light Skin 😍",
+      postTime: "15"
+    },
+    {
+      key: "2",
+      username: "itsuki",
+      location: "",
+      image: "https://p.favim.com/orig/2018/08/06/girls-instagram-models-xodidar-Favim.com-6125645.jpg",
+      likes: "15",
+      commentName1: "dchompe",
+      comment1: "I love you",
+      commentName2: "chingy",
+      comment2: "Beautiful",
+      postTime: "1"
+    },
+    {
+      key: "2",
+      username: "light_skin_ebony",
+      location: "Atlanta, Georgia",
+      image: "https://www.stylevore.com/wp-content/uploads/2020/02/1-15826988428c4lp.jpg",
+      likes: "12",
+      commentName1: "puritan",
+      comment1: "Boobies",
+      commentName2: "sminem",
+      comment2: "Love the hair",
+      postTime: "1"
     },
   ]);
 
   return (
     <div>
       {posts.map((post, index) => (
-        <div>
+        <div className="mb-10">
           <div className="flex flex-row flex-1 w-screen" key={post.key}>
             <div className="py-3">
               <div class="relative w-10 h-12 ml-3 mr-2">
@@ -33,7 +65,7 @@ const Post = () => {
               <img src={dots} className="h-5" alt="options"></img>
             </div>
           </div>
-          <img src={starbucks_girl} alt="main"></img>
+          <img src={post.image} alt="main"></img>
           <div className="flex flex-row pt-3 px-3">
             <svg
               className="mr-4"
@@ -92,14 +124,20 @@ const Post = () => {
             </div>
           </div>
           <div className="text-left text-sm pl-4 pt-3">
-            <p>
-              Liked by {} and {}
+            <p className="font-medium my-1 text-sm">{ post.likes } likes</p>
+            <p className="text-gray-400 mt-2 mb-1">View all { post.commentAmount } comments</p>
+            <div className="flex flex-row">
+              <p className="font-medium mr-1">{ post.commentName1 }</p>
+              <p className="">{ post.comment1 }</p>
+            </div>
+            <div className="flex flex-row">
+              <p className="font-medium mr-1">{ post.commentName2 }</p>
+              <p className="">{ post.comment2 }</p>
+            </div>
+            <p className=" text-left text-xs text-gray-400 mt-3">
+              { post.postTime } HOURS AGO
             </p>
           </div>
-          <div className="flex flex-row">
-            <div className="text-left text-sm pl-4 pt-3">{} Looking Good</div>
-          </div>
-          <div className="">{}</div>
         </div>
       ))}
     </div>
